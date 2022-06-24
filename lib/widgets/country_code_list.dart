@@ -32,7 +32,8 @@ class _CountryCodeListState extends State<CountryCodeList> {
   }
 
   void _refresh() {
-    widget.phoneNumberInputController.searchKey = _searchController.text;
+    widget.phoneNumberInputController.searchKey =
+        _searchController.text.toLowerCase();
     setState(() {
       _countries = widget.phoneNumberInputController.getCountries;
     });
@@ -68,52 +69,59 @@ class _CountryCodeListState extends State<CountryCodeList> {
                 ),
               ),
             ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: _countries.length,
-              shrinkWrap: true,
-              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
-              itemBuilder: (context, index) {
-                return InkWell(
-                  onTap: () {
-                    widget.phoneNumberInputController.selectedCountry =
-                        _countries[index];
-                    Navigator.pop(context);
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 12,
-                    ),
-                    child: Row(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(5),
-                          child: Image.asset(
-                            _countries[index].flagPath,
-                            width: 24,
-                            fit: BoxFit.cover,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Expanded(
+              child: ListView.builder(
+                itemCount: _countries.length,
+                shrinkWrap: true,
+                padding:
+                    const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {
+                      widget.phoneNumberInputController.selectedCountry =
+                          _countries[index];
+                      Navigator.pop(context);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 12,
+                      ),
+                      child: Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(5),
+                            child: Image.asset(
+                              _countries[index].flagPath,
+                              width: 24,
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                        ),
-                        const SizedBox(width: 2),
-                        Text(
-                          _countries[index].dialCode,
-                          style: widget.dialCodeTextStyle ??
-                              TextStyle(color: Theme.of(context).primaryColor),
-                          textDirection: TextDirection.ltr,
-                        ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: Text(
-                            _countries[index].name,
-                            style: TextStyle(
-                                color: Theme.of(context).colorScheme.secondary),
+                          const SizedBox(width: 4),
+                          Text(
+                            _countries[index].dialCode,
+                            style: widget.dialCodeTextStyle
+                                    ?.copyWith(fontWeight: FontWeight.bold) ??
+                                TextStyle(
+                                    color: Theme.of(context).primaryColor),
+                            textDirection: TextDirection.ltr,
                           ),
-                        ),
-                      ],
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Text(
+                              _countries[index].name,
+                              style: TextStyle(
+                                  color:
+                                      Theme.of(context).colorScheme.secondary),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
           ),
         ],

@@ -92,7 +92,7 @@ class PhoneNumberInputController extends ChangeNotifier {
     return _visibleCountries
         .where((element) =>
             element.dialCode.contains(_searchKey) ||
-            element.code.contains(_searchKey.toUpperCase()) ||
+            element.code.contains(_searchKey.toLowerCase()) ||
             element.name.contains(_searchKey))
         .toList();
   }
