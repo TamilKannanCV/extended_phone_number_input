@@ -160,7 +160,6 @@ class _CountryCodePickerState extends State<PhoneNumberInput> {
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            const Icon(Icons.arrow_drop_down),
                             if (_selectedCountry != null &&
                                 widget.showSelectedFlag)
                               Image.asset(
@@ -188,6 +187,8 @@ class _CountryCodePickerState extends State<PhoneNumberInput> {
                             const SizedBox(
                               width: 8,
                             ),
+                            const Icon(Icons.arrow_drop_down),
+
                           ],
                         ),
                       ),
