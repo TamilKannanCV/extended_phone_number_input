@@ -26,9 +26,11 @@ class PhoneNumberInput extends StatefulWidget {
   final InputBorder? focusedBorder;
   final ContactsPickerPosition contactsPickerPosition;
   final String? errorText;
+  final TextStyle? dialCodeTextStyle;
   const PhoneNumberInput({
     Key? key,
     this.controller,
+    this.dialCodeTextStyle,
     this.onChanged,
     this.initialValue,
     this.initialCountry,
@@ -171,8 +173,9 @@ class _CountryCodePickerState extends State<PhoneNumberInput> {
                             if (_selectedCountry != null)
                               Text(
                                 _selectedCountry!.dialCode,
-                                style: TextStyle(
-                                    color: Theme.of(context).primaryColor),
+                                style: widget.dialCodeTextStyle ??
+                                    TextStyle(
+                                        color: Theme.of(context).primaryColor),
                               ),
                             const SizedBox(
                               width: 8,
