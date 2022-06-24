@@ -227,9 +227,11 @@ class _CountryCodePickerState extends State<PhoneNumberInput> {
             builder: (_) => SizedBox(
                   height: 500,
                   child: CountryCodeList(
-                      searchHint: widget.searchHint,
-                      allowSearch: widget.allowSearch,
-                      phoneNumberInputController: _phoneNumberInputController),
+                    searchHint: widget.searchHint,
+                    allowSearch: widget.allowSearch,
+                    dialCodeTextStyle: widget.dialCodeTextStyle,
+                    phoneNumberInputController: _phoneNumberInputController,
+                  ),
                 ));
         break;
       case CountryListMode.dialog:
