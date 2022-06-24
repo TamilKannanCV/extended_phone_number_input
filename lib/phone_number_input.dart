@@ -160,15 +160,14 @@ class _CountryCodePickerState extends State<PhoneNumberInput> {
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
+                            const SizedBox(width: 4),
                             if (_selectedCountry != null &&
                                 widget.showSelectedFlag)
                               Image.asset(
                                 _selectedCountry!.flagPath,
                                 height: 12,
                               ),
-                            const SizedBox(
-                              width: 4,
-                            ),
+                            const SizedBox(width: 4),
                             if (_selectedCountry != null)
                               Text(
                                 _selectedCountry!.dialCode,
@@ -176,6 +175,10 @@ class _CountryCodePickerState extends State<PhoneNumberInput> {
                                     TextStyle(
                                         color: Theme.of(context).primaryColor),
                               ),
+                            const Icon(
+                              Icons.arrow_drop_down_rounded,
+                              color: Colors.black,
+                            ),
                             const SizedBox(
                               width: 8,
                             ),
@@ -187,8 +190,6 @@ class _CountryCodePickerState extends State<PhoneNumberInput> {
                             const SizedBox(
                               width: 8,
                             ),
-                            const Icon(Icons.arrow_drop_down),
-
                           ],
                         ),
                       ),
