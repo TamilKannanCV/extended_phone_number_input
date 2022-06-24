@@ -52,12 +52,13 @@ class _CountryCodeListState extends State<CountryCodeList> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsetsDirectional.only(start: 8, top: 10),
+            padding: const EdgeInsetsDirectional.all(10.0),
             child: InkWell(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: const Icon(Icons.close)),
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(Icons.close),
+            ),
           ),
           if (widget.allowSearch)
             Padding(
