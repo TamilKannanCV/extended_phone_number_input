@@ -118,7 +118,7 @@ class PhoneNumberInputController extends ChangeNotifier {
   String? validator(String? phoneNumber) {
     if (phoneNumber == null || phoneNumber.isEmpty) {
       _isValid = false;
-      return _errorText ?? 'الرجاء إدخال رقم الجوال';
+      return _errorText ?? 'No phone number found';
     } else {
       try {
         final englishNumber = arabicNumberConverter(phoneNumber);
@@ -127,7 +127,7 @@ class PhoneNumberInputController extends ChangeNotifier {
         final isValid = phoneInfo.validate();
         _isValid = isValid;
         if (!isValid) {
-          return _errorText ?? "الرجاء ادخال رقم جوال صحيح";
+          return _errorText ?? "Please enter a valid mobile number";
         }
         return null;
       } catch (e) {
