@@ -69,9 +69,9 @@ class _CountryCodeListState extends State<CountryCodeList> {
                 ),
               ),
             ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Expanded(
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
               child: ListView.builder(
                 itemCount: _countries.length,
                 shrinkWrap: true,
