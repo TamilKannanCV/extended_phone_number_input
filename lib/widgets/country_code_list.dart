@@ -66,6 +66,7 @@ class _CountryCodeListState extends State<CountryCodeList> {
                 controller: _searchController,
                 decoration: InputDecoration(
                   hintText: widget.searchHint,
+                  border: const OutlineInputBorder(),
                 ),
               ),
             ),
